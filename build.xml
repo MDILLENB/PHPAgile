@@ -1,0 +1,16 @@
+<project name="Finanzmarktportal" default="deploy" basedir=".">
+<!-- props -->
+<property name="htdocs.dir" value="f:/app/xampp/htdocs"/>
+    <target name="deploy" >
+        <!-- Clean up -->
+        <delete dir="${htdocs.dir}/${ant.project.name}"/>
+        <!-- Create build directory -->
+        <mkdir dir="${htdocs.dir}/${ant.project.name}"/>
+        <!-- Copy Files from src to xampp -->
+        <copy todir="${htdocs.dir}/${ant.project.name}">
+        <fileset dir="${basedir}/src">   
+            <include name="**/*" />     
+        </fileset>
+        </copy>
+    </target>   
+</project>
