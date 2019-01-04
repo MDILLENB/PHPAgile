@@ -15,6 +15,7 @@ This sample includes:
 * config - sample configuration of Microservice
 * sql - Database Setup
 * src - 4-layered Microservice
+* test - PHPUnit Tests
 
 Getting Started
 ---------------
