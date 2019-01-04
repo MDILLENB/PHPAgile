@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="/Presentation/css/main.css" />        
+</head>
+{% include 'header.html' %}
+<body class="subpage">
+<section id="main" class="wrapper">
+<div class="inner">
+<header class="align-center">
+    <h2>{% trans "Stock Analyse Form" %}</h2>   
+</header>
+     <i>{% for message in messages %} 
+        {% for item in message %} 
+            {{item}}
+        {% endfor %}        
+     {% endfor %}</i>
+    <form action="analyseform?" method="POST">
+        <input type="text" id="ticker" name="ticker" value="">
+        <button type="submit">{% trans "Analyse" %}</button>
+    </form>
+</div>
+</section>
+</body>
+{% include 'footer.html' %}
+</html>    

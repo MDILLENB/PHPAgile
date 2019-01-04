@@ -1,3 +1,0 @@
- <target name="package" depends="prepare" description="Packaging the application in to a ZIP File">
-	<zip destfile="${basedir}/target/${version-name}.zip" basedir="${basedir}/src" />
- </target>

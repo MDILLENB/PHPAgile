@@ -1,0 +1,119 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPAgile\n"
+"POT-Creation-Date: 2018-12-13 12:34+0100\n"
+"PO-Revision-Date: 2018-12-13 12:35+0100\n"
+"Last-Translator: Marco Dillenburg <mail@marcodillenburg.de>\n"
+"Language-Team: mail@marcodillenbuurg.de\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: stockanalyseform.twig\n"
+"X-Poedit-SearchPath-1: stockanalyseresults.twig\n"
+"X-Poedit-SearchPath-2: index.twig\n"
+
+#: index.twig:24
+msgid "Welcome"
+msgstr "Welcome"
+
+#: index.twig:26 stockanalyseform.twig:27
+msgid "Analyse"
+msgstr "Analyse"
+
+#: index.twig:40 index.twig:68
+msgid "Portfoliomanagement"
+msgstr "Portfoliomanagement"
+
+#: index.twig:41
+msgid "Buy, sell and check your portfolio"
+msgstr "Buy, sell and check your portfolio"
+
+#: index.twig:45 index.twig:80
+msgid "Stockmanagement"
+msgstr "Stockmanagement"
+
+#: index.twig:46
+msgid "Analyse and oberserve stocks"
+msgstr "Analyse and oberserve stocks"
+
+#: index.twig:50
+msgid "Cashmanagment"
+msgstr "Cashmanagment"
+
+#: index.twig:51
+msgid "Add and remove Cash"
+msgstr "Add and remove Cash"
+
+#: index.twig:55
+msgid "Get Started"
+msgstr "Get Started"
+
+#: index.twig:68
+msgid "The right size of positions"
+msgstr "The right size of positions"
+
+#: index.twig:69
+msgid "Positions should have minimum and maximum size"
+msgstr "Positions should have minimum and maximum size"
+
+#: index.twig:69
+msgid "dependent of the amount of your capital"
+msgstr "dependent of the amount of your capital"
+
+#: index.twig:69
+msgid "Sell positions when time is come"
+msgstr "Sell positions when time is come"
+
+#: index.twig:72 index.twig:84
+msgid "Learn More"
+msgstr "Learn More"
+
+#: index.twig:80
+msgid "The ideal stocks to pick"
+msgstr "The ideal stocks to pick"
+
+#: index.twig:81
+msgid "Watch the market, indices and stocks"
+msgstr "Watch the market, indices and stocks"
+
+#: index.twig:81
+msgid "Pick the value stock with best scoring and timing"
+msgstr "Pick the value stock with best scoring and timing"
+
+#: index.twig:81
+msgid "Estimate the real value of a coporate"
+msgstr "Estimate the real value of a coporate"
+
+#: stockanalyseform.twig:18
+msgid "Stock Analyse Form"
+msgstr "Stock Analyse Form"
+
+#: stockanalyseresults.twig:18
+msgid "Stock Analyse Result"
+msgstr "Stock Analyse Result"
+
+#: stockanalyseresults.twig:24
+msgid "Ticker"
+msgstr "Ticker"
+
+#: stockanalyseresults.twig:26
+msgid "Date"
+msgstr "Date"
+
+#: stockanalyseresults.twig:27
+msgid "High1m"
+msgstr "High1m"
+
+#: stockanalyseresults.twig:28
+msgid "Close"
+msgstr "Close"
+
+#: stockanalyseresults.twig:29
+msgid "Low1m"
+msgstr "Low1m"

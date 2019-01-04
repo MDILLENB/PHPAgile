@@ -1,0 +1,69 @@
+{
+    "name": "mdillenb/stockscreener",
+    "description": "A demo application for agile development in PHP",
+    "keywords": ["microframework", "agile", "professional", "php"],
+    "homepage": "http://www.marcodillenburg.de",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marco Dillenburg",
+            "email": "mail@marcodillenburg.de",
+            "homepage": "http://www.marcodillenburg.de"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "psr/container": "*", 
+        "slim/slim": "*",        
+        "slim/twig-view": "*",
+        "twig/twig": "*",
+        "twig/extensions": "*",
+        "doctrine/dbal": "*",
+        "doctrine/orm": "*",
+        "monolog/monolog": "*",        
+        "projek-xyz/slim-monolog": "*",   
+        "davidepastore/slim-validation": "*",  
+        "boronczyk/localization-middleware": "*",
+        "guzzlehttp/guzzle": "*",            
+        "pear/versioncontrol_git": "*"         
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "symfony/var-dumper": "*",        
+        "phing/phing": "2.*",
+        "squizlabs/php_codesniffer": "*",
+        "phpcheckstyle/phpcheckstyle": "*",
+        "sebastian/phpcpd": "*",
+        "phpmd/phpmd": "*",
+        "pdepend/pdepend": "*",
+        "phploc/phploc": "*",
+        "tedivm/jshrink": "*",
+        "pear/versioncontrol_git": "*",
+        "pear/archive_tar": "*",
+        "apigen/apigen": "*",
+        "roave/better-reflection": "*",
+        "umpirsky/twig-gettext-extractor": "*"
+    },
+    "autoload": {
+        "psr-4": {           
+            "Business\\": "src/Business/",
+            "Config\\": "src/Config/",
+            "Presentation\\": "src/Presentation/",
+            "Resource\\": "src/Resource/", 
+            "Support\\": "src/Support/",    
+            "Test\\": "test/", 
+            "": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {           
+            "Business\\": "src/Business/",
+            "Config\\": "src/Config/",
+            "Presentation\\": "src/Presentation/",
+            "Resource\\": "src/Resource/", 
+            "Support\\": "src/Support/", 
+            "Test\\": "test/", 
+            "": "src/"
+        }
+    }
+}

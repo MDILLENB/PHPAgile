@@ -1,17 +1,72 @@
-<project name="Finanzmarktportal" default="build" basedir=".">
+<project name="PHPDemo" default="build" basedir=".">   
 <!-- props -->
 <property name="htdocs.dir" value="f:/app/xampp/htdocs"/>
-<property name="app" value="finanzmarktportal"/>
-    <target name="build" >
+<property name="version" value="1.0"/>
+<property name="task" value="Task 1" />
+<property name="repo" value="f:/workspace/PHPAgile" />
+<property name="basedir" value="." />
+<property name="app" value="demo"/>
+<includepath classpath="build/" />
+<taskdef name="buildnumber" classname="BuildnumberTask" />
+<target name="build" depends="test,analyse">
         <!-- Clean up -->
-        <delete dir="${htdocs.dir}/${ant.project.name}"/>
+        <delete>
+            <fileset dir="${htdocs.dir}/${app}">
+                <include name="config/" /> 
+                <include name="stockscreener/" />
+                <include name="composer.json" />
+                <include name="composer.lock" />
+                <include name=".htaccess" /> 
+            </fileset>
+        </delete>   
         <!-- Create build directory -->
-        <mkdir dir="${htdocs.dir}/${ant.project.name}"/>
+        <mkdir dir="${htdocs.dir}/${app}"/>
+        <mkdir dir="${htdocs.dir}/${app}/config"/>
         <!-- Copy Files from src to xampp -->
-        <copy todir="${htdocs.dir}/${ant.project.name}">
-        <fileset dir="src">   
-            <include name="**/*" />     
+        <copy todir="${htdocs.dir}/${app}">
+        <fileset dir=".">   
+            <include name="config/" /> 
+            <include name="stockscreener/" /> 
+            <include name="composer.json" />
+            <include name="composer.lock" />
+            <include name=".htaccess" /> 
         </fileset>
         </copy>
+        <buildnumber file="buildnumber.txt" property="count" />
+        <!--<gitcommit repository="${repo}" message="${task}" allFiles="true" />-->
+        <!--<gittag repository="${repo}" name="${version}.${count}" annotate="true" message="${task}"/> -->
+        <echo msg="Build done" />
     </target>   
+    <target name="clean" depends="composer.update, composer.install">
+        <echo msg="Running clean" />
+    </target>  
+    <target name="test">     
+        <exec command="phpunit -c ../../phpunit.xml" dir="vendor/bin/" logoutput="true" />         
+    </target>
+    <target name="analyse"> 
+        <exec command="phploc ../../src --log-xml ../../build/phploc.xml " dir="vendor/bin/" logoutput="true"/>
+        <exec command="pdepend --summary-xml=../../build/pdepend.xml --jdepend-chart=../../build/jdepend.svg --overview-pyramid=../../build/pyramid.svg ../../src" dir="vendor/bin/" logoutput="true" /> 
+        <exec command="php vendor/phpcheckstyle/phpcheckstyle/run.php --src src --format html --outdir build --linecount" logoutput="true"/>
+        <exec command="phpmd ../../src html codesize,unusedcode,naming --reportfile ../../build/phpmd.html" dir="vendor/bin/" logoutput="true" />        
+        <exec command="phpcpd --fuzzy ../../src" dir="vendor/bin/" logoutput="true" />           
+        <exec command="phpcs --ignore=*/js,*css --report=xml --report-file=../../build/phpcs.xml  ../../src" dir="vendor/bin/" logoutput="true" /> 
+    </target>
+        <!-- COMPOSER SELF UPDATE -->
+    <target name="composer.update">
+        <echo msg="Running composer self-update ..." />
+        <exec logoutput="true" checkreturn="true" passthru="true" command="composer self-update" dir="${htdocs.dir}/${app}" />
+    </target>
+    <!-- END --> 
+    <!-- COMPOSER INSTALL -->
+    <target name="composer.install">
+        <echo msg="Running composer install ..." />
+        <copy todir="${htdocs.dir}/${app}">
+        <fileset dir=".">                   
+                <include name="composer.json" />
+                <include name="composer.lock" />
+        </fileset>
+        </copy>
+        <exec logoutput="true" checkreturn="true" passthru="true" command="composer install" dir="${htdocs.dir}/${app}" />
+    </target>
+    <!-- END -->
 </project>

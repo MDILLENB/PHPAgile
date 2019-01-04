@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<head>
+        <meta charset="UTF-8">
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="/Presentation/css/main.css" />        
+</head>
+{% include 'header.html' %}
+<body class="subpage">
+<section id="main" class="wrapper">
+<div class="inner">
+<header class="align-center">
+    <h2>{% trans "Stock Analyse Result" %}</h2>
+</header>
+	
+
+<table class="pure-table" width="100%" >
+    <tr>
+        <th>{% trans "Ticker" %}</th>
+        <th>Scoring</th>
+        <th>{% trans "Date" %} </th>
+        <th>{% trans "High1m" %}</th>
+        <th>{% trans "Close" %}</th> 
+        <th>{% trans "Low1m" %}</th>
+        <th>EMA20</th>
+        <th>EMA100</th> 
+        <th>SMA200</th>
+        <th>PerfW</th>
+        <th>RSI1W</th>
+    </tr>
+
+{% for score in scorings %}   
+    <tbody> 
+    <tr>
+        <td>{{score.ticker}}</td>
+        <td>{{score.scoring}}</td>
+        <td>{{score.date|date('Y-m-d H:i:s') }}</td>
+        <td>{{score.high1m|number_format(2,".",".")}}</td>     
+        <td>{{score.close|number_format(2,".",".") }}</td>
+        <td>{{score.low1m|number_format(2,".",".") }}</td>                
+        <td>{{score.ema20|number_format(2,".",".") }}</td>
+        <td>{{score.ema100|number_format(2,".",".") }}</td>
+        <td>{{score.sma200|number_format(2,".",".") }}</td>        
+        <td>{{score.perfw|number_format(2,".",".") }}</td>
+        <td>{{score.rsi1w|number_format(2,".",".") }}</td>
+    </tr>
+ </tbody> 
+{% endfor %}
+</table>
+</div>
+</section>
+</body>
+{% include 'footer.html' %}
+</html>    
