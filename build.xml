@@ -41,15 +41,15 @@
         <echo msg="Running clean" />
     </target>  
     <target name="test">     
-        <exec command="phpunit -c ../../phpunit.xml" dir="vendor/bin/" logoutput="true" />         
+        <exec command="phpunit -c ../../phpunit.xml" dir="vendor/bin/" />         
     </target>
     <target name="analyse"> 
-        <exec command="phploc ../../src --log-xml ../../build/phploc.xml " dir="vendor/bin/" logoutput="true"/>
-        <exec command="pdepend --summary-xml=../../build/pdepend.xml --jdepend-chart=../../build/jdepend.svg --overview-pyramid=../../build/pyramid.svg ../../src" dir="vendor/bin/" logoutput="true" /> 
-        <exec command="php vendor/phpcheckstyle/phpcheckstyle/run.php --src src --format html --outdir build --linecount" logoutput="true"/>
-        <exec command="phpmd ../../src html codesize,unusedcode,naming --reportfile ../../build/phpmd.html" dir="vendor/bin/" logoutput="true" />        
-        <exec command="phpcpd --fuzzy ../../src" dir="vendor/bin/" logoutput="true" />           
-        <exec command="phpcs --ignore=*/js,*css --report=xml --report-file=../../build/phpcs.xml  ../../src" dir="vendor/bin/" logoutput="true" /> 
+        <exec command="phploc ../../src --log-xml ../../build/phploc.xml" dir="vendor/bin/" />
+        <exec command="pdepend --summary-xml=../../build/pdepend.xml --jdepend-chart=../../build/jdepend.svg --overview-pyramid=../../build/pyramid.svg ../../src" dir="vendor/bin/" /> 
+            <exec command="php vendor/phpcheckstyle/phpcheckstyle/run.php --src src --format html --outdir ./build" />
+        <exec command="phpmd ../../src html codesize,unusedcode,naming --reportfile ../../build/phpmd.html" dir="vendor/bin/" />        
+        <exec command="phpcpd --fuzzy ../../src  --log-pmd=../../build/phpcpd.xml" dir="vendor/bin/" />           
+        <exec command="phpcs --ignore=*/js,*css --report=xml --report-file=../../build/phpcs.xml  ../../src" dir="vendor/bin/" /> 
     </target>
         <!-- COMPOSER SELF UPDATE -->
     <target name="composer.update">
